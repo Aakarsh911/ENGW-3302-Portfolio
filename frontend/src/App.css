@@ -21,6 +21,7 @@ nav {
   align-items: center;
   margin-left: 10%;
   z-index: 1;
+  margin-top: 0.5em;
 }
 
 .nav-links, .main-links {
@@ -29,21 +30,31 @@ nav {
   align-items: center;
 }
 
-.main-links a{
+.main-links a, .resume, .view{
   text-decoration: none;
   color: white;
   margin-left: 2em;
-  border-radius: 2em;
   height: 3em;
   width: 10em;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid blueviolet;
+  border: 2px solid transparent;
+  border-image: linear-gradient(to right, blueviolet, white) 1;
+  text-align: center;
 }
 
-.main-links a:hover {
-  border: 2px solid blueviolet;
+.tom a, .view{
+  border-image: linear-gradient(to right, tomato, white) 1;
+}
+
+.resume, .view{
+  margin-left: 0;
+  margin-top: 2em;
+}
+
+.main-links a:hover , .resume:hover {
+  border-image: linear-gradient(to right, red, blueviolet) 1;
   background: white;
   color: black;
 }
@@ -93,6 +104,12 @@ nav {
   }
 }
 
+a {
+  text-decoration: none;
+  color: white;
+
+}
+
 @keyframes expand {
   0% {
     transform: scale(1);
@@ -101,6 +118,19 @@ nav {
   100% {
     transform: scale(200);
     background: white;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    scale: 1;
+    background: white;
+    transform: translate(-15%, -20%);
+  }
+  100% {
+    scale: 0.1;
+    background: white;
+    transform: translate(-15%, -20%);
   }
 }
 
@@ -146,6 +176,7 @@ nav {
   display: none;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 13em;
 }
 
 .content-text, .content-image {
@@ -158,9 +189,9 @@ nav {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 48%;
+  top: 50%;
   left: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-40%);
 }
 
 .content-image img {
@@ -184,7 +215,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 10em;
+  height: 15em;
   background: white;
   color: black;
   transform: translate(210%, 0);
@@ -207,15 +238,6 @@ nav {
   margin: 0.4em 0;
 }
 
-.menu {
-  height: 100vh;
-  width: 50%;
-  background: red;
-  position: fixed;
-  color: black;
-  transform: translateX(100%);
-}
-
 .content-small-image {
   display: none;
   animation: bounce 4s ease-in-out infinite;
@@ -224,6 +246,23 @@ nav {
   left: 2%;
   transform: translate(-100%, -100%);
   animation: bounce 4s ease-in-out infinite;
+}
+
+.navigator {
+  display: none;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  left: 50%;
+}
+
+.navigator-open {
+  height: 600em;
+  width: 600vh;
+  border-radius: 50%;
+  top: 0%;
+  left: 50%;
+  background: white;
 }
 
 @media screen and (max-width: 768px) {
