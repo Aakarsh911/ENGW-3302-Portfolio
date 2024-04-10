@@ -30,7 +30,7 @@ nav {
   align-items: center;
 }
 
-.main-links a, .resume, .view{
+.main-links a, .resume, .view, .view-b, .view-s{
   text-decoration: none;
   color: white;
   margin-left: 2em;
@@ -48,7 +48,16 @@ nav {
   border-image: linear-gradient(to right, tomato, white) 1;
 }
 
-.resume, .view{
+.green a, .view-b{
+  border-image: linear-gradient(to right, #3af274, white) 1;
+
+}
+
+.sky a, .view-s{
+  border-image: linear-gradient(to right, skyblue, white) 1;
+}
+
+.resume, .view, .view-b, .view-s{
   margin-left: 0;
   margin-top: 2em;
 }
@@ -216,6 +225,7 @@ a {
   justify-content: center;
   align-items: center;
   height: 15em;
+  width: 20em;
   background: white;
   color: black;
   transform: translate(210%, 0);
@@ -338,13 +348,13 @@ a {
     transform: translateX(210%);
   }
   100% {
-    transform: translateX(100%);
+    transform: translateX(2%);
   }
 }
 
 @keyframes slide-out {
   0% {
-    transform: translateX(100%);
+    transform: translateX(2%);
   }
   100% {
     transform: translateX(210%);

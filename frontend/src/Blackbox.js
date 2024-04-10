@@ -1,10 +1,10 @@
 import './App.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import resume from './resume.pdf';
-import programmer from './programmer.png';
+import blackbox from './blackbox.pdf';
+import ml from './ml.png';
 
-function Home() {
+function Blackbox() {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -27,8 +27,7 @@ function Home() {
         });
         const navigator = document.querySelector('.navigator');
         navigator.style.display = 'block';
-        navigator.style.animation = 'expand 2s forwards';
-        document.querySelector('nav').style.animation = 'fade-out 0.1s forwards';
+        navigator.style.animation = 'expand 1s forwards';
         setTimeout(() => {
             window.location.href = link;
         }, 1000);
@@ -65,24 +64,25 @@ function Home() {
     }, []);
 
     useEffect(() => {
+        document.querySelector('.navigator-open').style.animation = 'shrink 2s forwards';
         setTimeout(() => {
             document.querySelector('nav').style.display = 'flex';
-            document.querySelector('nav').style.animation = 'fade-in 5s forwards';
-        }, 2000);
+            document.querySelector('nav').style.animation = 'fade-in 2s forwards';
+            document.querySelector('.navigator-open').style.display = 'none';
+        }, 1000);   
         setTimeout(() => {
-            document.querySelector('.collider').style.display = 'none';
             document.querySelector('.content').style.display = 'flex';
-            document.querySelector('.content').style.animation = 'fade-in 5s forwards';
-        }, 3000);
+            document.querySelector('.content').style.animation = 'fade-in 2s forwards';
+        }, 1000);
     }
         );
   return (
     <div className="App">
       <nav>
         <h1 className="name">Writing Portfolio</h1>
-        <div className="main-links">
+        <div className="main-links green">
+        <a href="/">Home</a>
         <a onClick={(e)=>handleClick(e, "/research")}>Research Proposal</a>
-        <a onClick={(e)=>handleClick(e, "/blackbox")}>Blackbox</a>
         <a onClick={(e)=>handleClick(e, "/correspondence")}>Professional Correspondence</a>
         </div>
         <div className="burger" onClick={toggleMenu}>
@@ -92,18 +92,14 @@ function Home() {
         </div>
         <div className="options">
             <div className="close" onClick={toggleMenu}>X</div>
+            <a href="/">Home</a>
             <a onClick={(e)=>handleClick(e, "/research")}>Research Proposal</a>
-            <a onClick={(e)=>handleClick(e, "/blackbox")}>Blackbox</a>
             <a onClick={(e)=>handleClick(e, "/correspondence")}>Professional Correspondence</a>
         </div>
       </nav>
-      <div className="collider">
-        <div className="particle part-1"></div>
-        <div className="particle part-2"></div>
-      </div>
       <div className="content">
         <div className="content-small-image">
-            <img src={programmer} alt="Aakarsh Kaushal" height="400em"/>
+            <img src={ml} alt="Aakarsh Kaushal" height="400em"/>
         </div>
         <div className="mouse">
             <div className="mouse-body">
@@ -111,18 +107,18 @@ function Home() {
             </div>
         </div>
         <div className="content-text">
-            <h1>Hi, I'm <span className="highlight">Aakarsh Kaushal</span></h1>
-            <h3>Welcome to my professional portfolio.</h3>
-            <h4>I am a second year CS major at Northeastern University with a keen interest in Astrophysics. This website features my writings for the ENGW-3302 Advanced Writing in Technical Professions course. You can navigate to these writings using the links in the top-right section of the webpage</h4>
-            <a className="resume" href={resume} target="_blank">Resume</a>
+            <h1>Decoding <span style={{color:"#3af274"}}>Machine Learning</span> algorithms</h1>
+            <h4>In this essay, I propose a research based on quantitatively analysing and understanding the negative energy distribution within the casimir cavity to use it to manipulate spacetime to further the research in Alcubierre drive and move towards the goal of building it.</h4>
+            <a className="view-b" href={blackbox} target="_blank">View</a>
         </div>
         <div className="content-image">
-            <img src={programmer} alt="Aakarsh Kaushal" height="500em"/>
+            <img src={ml} alt="Aakarsh Kaushal" height="500em"/>
         </div>
       </div>
+      <div className="navigator-open"></div>
       <div className="navigator"></div>
     </div>
   );
 }
 
-export default Home;
+export default Blackbox;

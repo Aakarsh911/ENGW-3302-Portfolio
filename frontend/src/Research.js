@@ -82,8 +82,8 @@ function Research() {
         <h1 className="name">Writing Portfolio</h1>
         <div className="main-links tom">
         <a href="/">Home</a>
-        <a href={research} onClick={(e)=>handleClick(e, research)}>Blackbox</a>
-        <a href="" target='_blank'>Professional Correspondence</a>
+        <a onClick={(e)=>handleClick(e, "/blackbox")}>Blackbox</a>
+        <a onClick={(e)=>handleClick(e, "/correspondence")}>Professional Correspondence</a>
         </div>
         <div className="burger" onClick={toggleMenu}>
             <div className="line"></div>
@@ -93,8 +93,8 @@ function Research() {
         <div className="options">
             <div className="close" onClick={toggleMenu}>X</div>
             <a href="/">Home</a>
-            <a href={research} onClick={(e)=>handleClick(e, research)}>Research Proposal</a>
-            <a href={research} onClick={(e)=>handleClick(e, research)}>Blackbox</a>
+            <a onClick={(e)=>handleClick(e, "/blackbox")}>Blackbox</a>
+            <a onClick={(e)=>handleClick(e, "/correspondence")}>Professional Correspondence</a>
         </div>
       </nav>
       <div className="content">
@@ -116,6 +116,7 @@ function Research() {
         </div>
       </div>
       <div className="navigator-open"></div>
+      <div className="navigator"></div>
     </div>
   );
 }
