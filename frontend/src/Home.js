@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import research from './research.pdf';
 import programmer from './programmer.png';
 
 function Home() {
@@ -21,14 +22,13 @@ function Home() {
     useEffect(() => {
         const handleScroll = () => {
             const contentSmallImage = document.querySelector('.content-small-image');
+            const mouse = document.querySelector('.mouse');
             if (!contentSmallImage) return;
     
             let windowHeight = window.innerHeight;
             let scrollY = window.scrollY;
-    
-            // Adjust these values based on your preferences
-            let fadeStart = 1; // Start fade at 100px scroll
-            let fadeEnd = windowHeight / 2; // End fade at half the window height
+            let fadeStart = 1;
+            let fadeEnd = windowHeight / 2;
     
             let opacity = 1;
     
@@ -41,6 +41,7 @@ function Home() {
             }
     
             contentSmallImage.style.opacity = opacity;
+            mouse.style.opacity = opacity;
         };
     
         window.addEventListener('scroll', handleScroll);
@@ -57,9 +58,6 @@ function Home() {
             document.querySelector('.collider').style.display = 'none';
             document.querySelector('.content').style.display = 'flex';
             document.querySelector('.content').style.animation = 'fade-in 5s forwards';
-            if (window.innerWidth < 800) {
-                document.querySelector('.content-small-image').style.animation = 'fade-in 5s forwards';
-            }
         }, 3000);
     }
         );
@@ -68,7 +66,7 @@ function Home() {
       <nav>
         <h1 className="name">My Portfolio</h1>
         <div className="main-links">
-        <a href="">Research Proposal</a>
+        <a href={research}>Research Proposal</a>
         <a href="">Blackbox</a>
         </div>
         <div className="burger" onClick={toggleMenu}>
@@ -78,7 +76,7 @@ function Home() {
         </div>
         <div className="options">
             <div className="close" onClick={toggleMenu}>X</div>
-            <a href="">Research Proposal</a>
+            <a href={research}>Research Proposal</a>
             <a href="">Blackbox</a>
         </div>
       </nav>
@@ -88,11 +86,17 @@ function Home() {
       </div>
       <div className="content">
         <div className="content-small-image">
-            <img src={programmer} alt="Aakarsh Kaushal" height="500em"/>
+            <img src={programmer} alt="Aakarsh Kaushal" height="400em"/>
+        </div>
+        <div class="mouse">
+            <div class="mouse-body">
+                <div class="scroll-wheel"></div>
+            </div>
         </div>
         <div className="content-text">
             <h1>Hi, I'm <span className="highlight">Aakarsh Kaushal</span></h1>
-            <h3>CS Major @ NEU with a keen interest in Astrophysics</h3>
+            <h3>Welcome to my professional portfolio.</h3>
+            <h4>I am a second year <span style={{color:"dodgerblue"}}>CS</span> major at <span style={{color:"red"}}>Northeastern University</span> with a keen interest in Astrophysics. This website features my writings for the ENGW-3302 Advanced Writing in Technical Professions course. You can navigate to these writings using the links in the top-right section of the webpage</h4>
         </div>
         <div className="content-image">
             <img src={programmer} alt="Aakarsh Kaushal" height="500em"/>
